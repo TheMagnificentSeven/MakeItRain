@@ -12,7 +12,8 @@ public class RotateLeftArm : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-			if (Input.GetKey (KeyCode.J))
-			transform.position += new Vector3 (0.0f, speed * Time.deltaTime,speed * Time.deltaTime);
-	}
+		if (Input.GetKey (KeyCode.J))
+            transform.Rotate(Vector3.back * speed);
+        //transform.position += new Vector3 (0.0f, speed * Time.deltaTime,speed * Time.deltaTime);
+    }
 }
