@@ -33,42 +33,39 @@ public class XRotate : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float z = transform.eulerAngles.z;
+        jointAngle = hinge.jointAngle;
 
         if (clockwise)
         {
-            if (Input.GetKey(key) && z >= minAngle)
-            {
-                motor.motorSpeed = speed;
-            }
-            else if (z <= maxAngle)
-            {
-                motor.motorSpeed = -speed;
-            }
-            else
-            {
-                motor.motorSpeed = 0;
+            if (Input.GetKey(key)) {
+                if (jointAngle < maxAngle)
+                    motor.motorSpeed = speed;
+                else
+                    motor.motorSpeed = 0;
+            } else {
+                if (jointAngle > minAngle)
+                    motor.motorSpeed = -speed;
+                else
+                    motor.motorSpeed = 0;
             }
         } else
         {
-            if (Input.GetKey(key) && z <= maxAngle)
+            if (Input.GetKey(key))
             {
-                motor.motorSpeed = -speed;
+                if (jointAngle > minAngle)
+                    motor.motorSpeed = -speed;
+                else
+                    motor.motorSpeed = 0;
             }
-            else if (z > minAngle)
-            {
-                motor.motorSpeed = speed;
-            }
-            else
-            {
-                motor.motorSpeed = 0;
+            else {
+                if (jointAngle < maxAngle)
+                    motor.motorSpeed = speed;
+                else
+                    motor.motorSpeed = 0;
             }
         }
 
-
         hinge.motor = motor;
-		jointAngle = hinge.jointAngle;
-		//Debug.Log (jointAngle);
     }
 
 	public float getJointAngle() {
