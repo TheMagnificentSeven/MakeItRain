@@ -16,16 +16,21 @@ public class DanHealth : MonoBehaviour {
 
     void Update()
     {
-
-    }
-
-	void takeDamage (float damage) {
         if (health <= 0)
         {
             if (!dead)
+            {
                 dead = true;
+                // stop player from moving
+                // write Game Over to screen
+
+            }
         }
-        else
-            health =- damage;
-	}
+    }
+
+    void takeDamage(float damage)
+    {
+        health = -damage;
+    }
+
 }
