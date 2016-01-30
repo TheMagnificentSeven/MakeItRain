@@ -1,0 +1,62 @@
+
+dance pong
+magic pong
+dancing magic
+bullet hell
+button/movement combination to activate spells/special attacks
+
+"QWOP rain dance"
+-goal: perform a ritual/dance(?) to summon rain
+-success = call the rain within the time limit
+-similar to QWOP controls: four/few keys to control arms/legs
+-ragdoll physics
+-every level has different instructions
+-extreme moves, e.g. "stand on head"
+-player is given steps like the Clefairy Game, e.g. left arm/right arm
+-possible two player mode: each player uses keys on half the keyboard
+
+~Controls~
+-hold key to rotate arm
+-jump?
+-how to toggle rotation of direction?
+-two-player co-op: one person controls arms, one controls legs (removes the "too 
+many keys to control" problem) - two buttons per limb, controls direction
+-Use xBox controller? (Unity = maybe can't press several keys at once)
+-Five controls: move arms, move legs, do handstand
+
+~Commands~
+-"move arm three times, then move left leg"
+-jump=bend legs, hold and then release
+-Simple commands: "move limb", "jump"
+-Challenging commands: "stand on head"
+-Catch rain in a bowl: first catch the bowl, then have to catch the rain
+-"Fight the bear": throw yourself against a bear
+
+~Limit/Risk/How to Lose~
+-Time limit (please avoid)
+-Land on your head
+-Every time you win, things fall from the sky and land on ground, make it harder to
+carry out controls
+-Can have HP, falling objects deal damage: must finish the dance before you run out of HP
+
+-Don't have joints on limbs in beginning to make it less complicated
+
+~Effects~
+-Replace particle textures with sprites? Have random objects raining from the sky
+
+~Game Rules~
+-[randomly?] generated steps appear on top of screen for player to follow. Player carries out steps; 
+when they have successfully completed all the steps, they summon a random rain of items. 
+Some items are harmless (baseballs) but some can damage/kill player (anvil) - an arrow appears where 
+it will land and player needs to move out of way or else be damaged (HP is decreased) or killed (game over).
+
+Shaman Dan's Dimensions
+100px by 200px Total neutral size
+
+torso = 60 x 60
+head = 25 x 25
+arm = 10 x 80
+legs = 10 x 80
+
+
+
