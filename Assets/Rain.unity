@@ -626,6 +626,8 @@ GameObject:
   m_Component:
   - 4: {fileID: 1391520436}
   - 212: {fileID: 1391520435}
+  - 114: {fileID: 1391520438}
+  - 114: {fileID: 1391520437}
   m_Layer: 0
   m_Name: BackgroundImage
   m_TagString: Untagged
@@ -675,6 +677,28 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
+--- !u!114 &1391520437
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1391520434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba90a04153fa04191842a07f6aed79bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1391520438
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1391520434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f3c685263cc242f6bdf4d593086d86a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1471579232
 GameObject:
   m_ObjectHideFlags: 0

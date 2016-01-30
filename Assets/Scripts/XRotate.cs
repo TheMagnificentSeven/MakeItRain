@@ -19,11 +19,15 @@ public class XRotate : MonoBehaviour
     private HingeJoint2D hinge;
     private JointMotor2D motor;
 
+	// It is at 90 degrees during rest position, and decreases as arm moves up
+	private float jointAngle; 
+
     // Use this for initialization
     void Start()
     {
         hinge = GetComponent<HingeJoint2D>();
         motor = hinge.motor;
+		jointAngle = hinge.jointAngle;
     }
 
     // Update is called once per frame
@@ -63,5 +67,11 @@ public class XRotate : MonoBehaviour
 
 
         hinge.motor = motor;
+		jointAngle = hinge.jointAngle;
+		//Debug.Log (jointAngle);
     }
+
+	public float getJointAngle() {
+		return jointAngle;
+	}
 }
