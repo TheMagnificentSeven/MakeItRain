@@ -12,7 +12,6 @@ public class Rotate : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (Input.GetKey (KeyCode.J)) {
-			Debug.Log (gameObject.transform.rotation.z* Time.deltaTime * speed);
 			if(gameObject.transform.rotation.z* Time.deltaTime * speed <8.1)
 				transform.Rotate (Vector3.back * Time.deltaTime * speed);
 		}
