@@ -10,7 +10,7 @@ public class RotateRightLeg : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetKey (KeyCode.F)) {//right leg
+		if (Input.GetKey (KeyCode.O)) {//right leg
 			Debug.Log (gameObject.transform.rotation.z);
 			transform.Rotate (Vector3.forward * Time.deltaTime * speed);
 		}
