@@ -4,7 +4,7 @@ using System.Collections;
 public class MakeItRain : MonoBehaviour
 {
 
-    private int numObjects = 10;
+    private int numObjects = 20;
     private float minX = -4f;
     private float maxX = 4f;
     private GameObject rain;
@@ -43,10 +43,12 @@ public class MakeItRain : MonoBehaviour
                 break;
         }
 
-        float x_pos = Random.Range(minX, maxX - rain.GetComponent<BoxCollider2D>().size.x);
+        
         for (int i = 0; i < numObjects; i++)
         {
-            rainClone = (GameObject)Instantiate(rain, new Vector3(x_pos, rain.transform.position.y, rain.transform.position.z), rain.transform.rotation);
+            float x_rand = Random.Range(-4f, 4f);
+            float y_rand = Random.Range(-1f, 1f);
+            rainClone = (GameObject)Instantiate(rain, new Vector3(x_rand, rain.transform.position.y + y_rand, rain.transform.position.z), rain.transform.rotation);
             rainClone.GetComponent<Rigidbody2D>().gravityScale = 1;
         }
     }
