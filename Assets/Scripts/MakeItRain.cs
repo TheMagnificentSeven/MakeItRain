@@ -1,27 +1,31 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class MakeItRain : MonoBehaviour {
+public class MakeItRain : MonoBehaviour
+{
 
     private int numObjects = 10;
     private float minX = -4f;
     private float maxX = 4f;
-    private  GameObject rain;
+    private GameObject rain;
     private GameObject rainClone;
-    
 
-	// Use this for initialization
-	void Start () {
+
+    // Use this for initialization
+    void Start()
+    {
         // Here only for test
         Rain();
-	}
-	
-	// Update is called once per frame
-	void Update () {
+    }
 
-	}
+    // Update is called once per frame
+    void Update()
+    {
 
-    void Rain() {
+    }
+
+    void Rain()
+    {
         int whichRain = Random.Range(1, 4);
         switch (whichRain)
         {
@@ -38,11 +42,11 @@ public class MakeItRain : MonoBehaviour {
                 rain = GameObject.Find("Rain/dangerousObj");
                 break;
         }
-       
+
         float x_pos = Random.Range(minX, maxX - rain.GetComponent<BoxCollider2D>().size.x);
         for (int i = 0; i < numObjects; i++)
         {
-            rainClone = (GameObject) Instantiate(rain, new Vector3(x_pos, rain.transform.position.y, rain.transform.position.z), rain.transform.rotation);
+            rainClone = (GameObject)Instantiate(rain, new Vector3(x_pos, rain.transform.position.y, rain.transform.position.z), rain.transform.rotation);
             rainClone.GetComponent<Rigidbody2D>().gravityScale = 1;
         }
     }
