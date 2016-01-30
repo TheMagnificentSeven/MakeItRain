@@ -2,7 +2,7 @@
 using System.Collections;
 
 
-public class Rotate : MonoBehaviour {
+public class RotateLeftArm : MonoBehaviour {
 	public float speed = 1f;
 
 	// Use this for initialization
