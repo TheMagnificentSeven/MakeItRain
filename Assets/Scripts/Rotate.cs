@@ -15,13 +15,5 @@ public class Rotate : MonoBehaviour {
 			if(gameObject.transform.rotation.z* Time.deltaTime * speed <8.1)
 				transform.Rotate (Vector3.back * Time.deltaTime * speed);
 		}
-		if (Input.GetKey (KeyCode.L)) //right arm
-			transform.Rotate (Vector3.forward * Time.deltaTime *speed);
-		
-		if (Input.GetKey (KeyCode.F)) //right leg
-			transform.Rotate (Vector3.forward * Time.deltaTime *speed);
-		
-		if (Input.GetKey (KeyCode.S))//left leg
-			transform.Rotate (Vector3.back * Time.deltaTime * speed);
 	}
 }
