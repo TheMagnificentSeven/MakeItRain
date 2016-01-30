@@ -1,0 +1,18 @@
+[
+	{
+		"id": "1",
+	 	"image" : "1.png",
+	 	"LeftArm" : "10",
+	 	"RightArm": "10",
+	 	"LeftLeg" : "20",
+	 	"RightLeg" : "20"
+ 	},
+ 	{
+	 	"id": "2",
+	 	"image" : "2.png",
+	 	"LeftArm" : "10",
+	 	"RightArm": "10",
+	 	"LeftLeg" : "20",
+	 	"RightLeg" : "20"
+ 	}
+]
