@@ -3,7 +3,7 @@ using System.Collections;
 
 
 public class RotateLeftArm : MonoBehaviour {
-	public float speed = 1f;
+	[SerializeField] public float speed;
 
 	// Use this for initialization
 	void Start () {
