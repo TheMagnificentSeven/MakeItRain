@@ -41,7 +41,7 @@ public class MakeItRain : MonoBehaviour
             case 2:
                 rain = GameObject.Find("Rain/safeObj");
                 break;
-            case 3:
+            case 3: 
                 rain = GameObject.Find("Rain/mediumObj");
                 break;
              default:
