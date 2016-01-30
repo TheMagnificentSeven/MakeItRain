@@ -12,7 +12,7 @@ public class RotateRightArm : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetKey (KeyCode.L)) { //right arm
+		if (Input.GetKey (KeyCode.P)) { //right arm
 			if(gameObject.transform.rotation.z > -0.4)
 			transform.Rotate (Vector3.forward * Time.deltaTime * speed);
 		}
