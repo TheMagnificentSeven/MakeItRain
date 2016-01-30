@@ -11,15 +11,17 @@ public class Rotate : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetKey (KeyCode.J)) {
+		if (Input.GetKey (KeyCode.J)) { //left arm
 			if(gameObject.transform.rotation.z* Time.deltaTime * speed <8.1)
 				transform.Rotate (Vector3.back * Time.deltaTime * speed);
 		}
-			/*if (Input.GetKey (KeyCode.L))
-			transform.Rotate (Vector3.forward *speed);
-		if (Input.GetKey (KeyCode.F))
-			transform.position += new Vector3 (0.0f,0.0f,speed * Time.deltaTime);
-		if (Input.GetKey (KeyCode.S))
-			transform.position += new Vector3 (0.0f, 0.0f,speed * Time.deltaTime);*/
+		if (Input.GetKey (KeyCode.L)) //right arm
+			transform.Rotate (Vector3.forward * Time.deltaTime *speed);
+		
+		if (Input.GetKey (KeyCode.F)) //right leg
+			transform.Rotate (Vector3.forward * Time.deltaTime *speed);
+		
+		if (Input.GetKey (KeyCode.S))//left leg
+			transform.Rotate (Vector3.back * Time.deltaTime * speed);
 	}
 }
