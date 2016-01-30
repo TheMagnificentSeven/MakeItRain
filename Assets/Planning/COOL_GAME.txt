@@ -45,7 +45,10 @@ carry out controls
 -Replace particle textures with sprites? Have random objects raining from the sky
 
 ~Game Rules~
--[randomly?] generated steps appear on top of screen for player to follow. Player carries out steps; when they have successfully completed all the steps, they summon a random rain of items. Some items are harmless (baseballs) but some can damage/kill player (anvil) - an arrow appears where it will land and player needs to move out of way or else be damaged (HP is decreased) or killed (game over).
+-[randomly?] generated steps appear on top of screen for player to follow. Player carries out steps; 
+when they have successfully completed all the steps, they summon a random rain of items. 
+Some items are harmless (baseballs) but some can damage/kill player (anvil) - an arrow appears where 
+it will land and player needs to move out of way or else be damaged (HP is decreased) or killed (game over).
 
 Shaman Dan's Dimensions
 100px by 200px Total neutral size
