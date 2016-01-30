@@ -204,7 +204,7 @@ Rigidbody2D:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!61 &328088215
 BoxCollider2D:
@@ -428,7 +428,7 @@ Rigidbody2D:
   m_IsKinematic: 1
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!212 &797513238
 SpriteRenderer:
@@ -530,7 +530,7 @@ HingeJoint2D:
   m_ConnectedAnchor: {x: 0.30877572, y: 0.29611158}
   m_UseMotor: 0
   m_Motor:
-    m_MotorSpeed: 0
+    m_MotorSpeed: 10
     m_MaximumMotorForce: 10000
   m_UseLimits: 0
   m_AngleLimits:
@@ -551,7 +551,7 @@ Rigidbody2D:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!61 &1210018351
 BoxCollider2D:
@@ -564,9 +564,9 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: 0.000003822148, y: -0.44779813}
+  m_Offset: {x: 0.000004760921, y: -0.5121825}
   serializedVersion: 2
-  m_Size: {x: 0.1, y: 0.69192326}
+  m_Size: {x: 0.1, y: 0.56316143}
 --- !u!212 &1210018352
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -737,7 +737,7 @@ Rigidbody2D:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!61 &1471579236
 BoxCollider2D:
@@ -872,7 +872,7 @@ Rigidbody2D:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!61 &1640011553
 BoxCollider2D:
@@ -885,9 +885,9 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: 0.0000007003546, y: -0.44598955}
+  m_Offset: {x: 0.000000834465, y: -0.51690865}
   serializedVersion: 2
-  m_Size: {x: 0.1, y: 0.705816}
+  m_Size: {x: 0.1, y: 0.56397676}
 --- !u!233 &1640011554
 HingeJoint2D:
   m_ObjectHideFlags: 0
@@ -909,8 +909,8 @@ HingeJoint2D:
     m_MaximumMotorForce: 10000
   m_UseLimits: 0
   m_AngleLimits:
-    m_LowerAngle: 0
-    m_UpperAngle: 359
+    m_LowerAngle: 160
+    m_UpperAngle: 350
 --- !u!114 &1640011555
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -919,7 +919,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1640011549}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 77400ea2ccc144036a2d9a6ab3bf8bcf, type: 3}
+  m_Script: {fileID: 11500000, guid: 32ccfd4e7cdde4043bfecba4ff8bf84e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 500
