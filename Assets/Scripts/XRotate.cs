@@ -4,6 +4,8 @@ using System.Collections;
 public class XRotate : MonoBehaviour {
 
     [SerializeField] public float speed;
+    [SerializeField]
+    public KeyCode key;
 
     private HingeJoint2D hinge;
     private JointMotor2D motor;
@@ -16,13 +18,13 @@ public class XRotate : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetKey(KeyCode.Q))
+        if (Input.GetKey(key))
         {
-            motor.motorSpeed = 400;
+            motor.motorSpeed = speed;
         }
         else
         {
-            motor.motorSpeed = -400;
+            motor.motorSpeed = -speed;
         }
 
 
