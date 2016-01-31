@@ -50,6 +50,11 @@ public class MakeItRain : MonoBehaviour
             float y_rand = Random.Range(1f, 3f);
             rainClone = (GameObject) Instantiate(rain, new Vector3(x_rand, rain.transform.position.y - y_rand, rain.transform.position.z), rain.transform.rotation);
             rainClone.GetComponent<Rigidbody2D>().gravityScale = 1;
+            Collider2D rainCol = rainClone.GetComponent<BoxCollider2D>();
+            Collider2D leftWall = GameObject.Find("LeftWall").GetComponent<BoxCollider2D>();
+            Collider2D rightWall = GameObject.Find("RightWall").GetComponent<BoxCollider2D>();
+            Physics2D.IgnoreCollision(rainCol, leftWall, true);
+            Physics2D.IgnoreCollision(rainCol, rightWall, true);
         }
     }
 }

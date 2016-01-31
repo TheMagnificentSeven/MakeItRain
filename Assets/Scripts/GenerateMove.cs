@@ -29,6 +29,10 @@ using System.Collections.Generic;
 			}
     }
 
+	public List<Pose> getGeneratedPoseLists() {
+		return poseList;
+	}
+
 	void IncPose(){
 		numPose += 2;
 	}
@@ -45,7 +49,7 @@ using System.Collections.Generic;
 		Debug.Log (Screen.width);
 		for(int i = 0; i < numPose ; i++) {
 			string img_num = poseList[i].getId();
-			GameObject pose_s = GameObject.Find(img_num);
+			GameObject pose_s = GameObject.Find("p_" + img_num);
 			GameObject pos_s = (GameObject)Instantiate(pose_s, new Vector3(x, y, 0), Quaternion.identity);
 			SetX ();
 		}
