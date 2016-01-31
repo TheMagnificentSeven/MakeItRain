@@ -97,7 +97,7 @@ public class MakeItRain : MonoBehaviour
         }
 
         // pick an object
-        int randomNumber = Random.Range(0, rainArray.Length + 1);
+        int randomNumber = Random.Range(0, rainArray.Length - 1);
         GameObject rain = rainArray[randomNumber];
 
         // determine numObjects using object size!
@@ -125,6 +125,6 @@ public class MakeItRain : MonoBehaviour
         // Restart
         danceQuality = -1;
         InitializeTimer();
-        //Debug.Log(timer);
+        Debug.Log(timer);
     }
 }
