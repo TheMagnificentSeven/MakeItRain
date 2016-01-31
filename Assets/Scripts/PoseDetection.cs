@@ -78,7 +78,8 @@ public class PoseDetection : MonoBehaviour {
 
 		}
 
-		UpdateTime (); //NEW
+        //TODO Uncomment once TimerText is ready
+		//UpdateTime (); //NEW
 	
 	}
 
