@@ -97,7 +97,7 @@ public class MakeItRain : MonoBehaviour
         }
 
         // pick an object
-        int randomNumber = Random.Range(0, rainArray.Length + 1);
+        int randomNumber = Random.Range(0, rainArray.Length - 1);
         GameObject rain = rainArray[randomNumber];
 
         // determine numObjects using object size!
