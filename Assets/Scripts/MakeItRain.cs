@@ -21,7 +21,7 @@ public class MakeItRain : MonoBehaviour
     // Just for test
     void Update()
     {
-        if (count % 1000 == 0) { 
+        if (count % 100 == 0) { 
             Rain();
             count++;
         }
