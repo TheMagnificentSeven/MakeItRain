@@ -21,17 +21,13 @@ public class MakeItRain : MonoBehaviour
     // Just for test
     void Update()
     {
-        if (count % 100 == 0) { 
-            Rain();
-            count++;
-        }
-        count++;
+
     }
 
     // Called only when dance is finished
-    void Rain()
+    public void Rain()
     {
-        int whichRain = Random.Range(10, 15);
+        int whichRain = Random.Range(1, 5);
         switch (whichRain)
         {
             case 1:
@@ -48,7 +44,6 @@ public class MakeItRain : MonoBehaviour
                 break;
         }
 
-        
         for (int i = 0; i < numObjects; i++)
         {
             float x_rand = Random.Range(minX, maxX - rain.GetComponent<BoxCollider2D>().size.x);
