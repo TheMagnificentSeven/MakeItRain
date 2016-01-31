@@ -20,7 +20,7 @@ public class ParticleSpawner : MonoBehaviour {
         ParticleSystem newParticles = Instantiate(particlePrefab, transform.position, Quaternion.identity)
             as ParticleSystem;
 
-        Debug.Log("Spawning particles");
+        //Debug.Log("Spawning particles");
 
         Destroy(newParticles.gameObject, newParticles.startLifetime);
     }

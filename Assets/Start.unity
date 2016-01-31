@@ -367,6 +367,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1e1d0cf947a5a448bff6b84dcc05fb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nextLevel: Rain
 --- !u!114 &1343493944
 MonoBehaviour:
   m_ObjectHideFlags: 0
