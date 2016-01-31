@@ -12,7 +12,7 @@ public class HeadHealth : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        grunts = GetComponents<AudioSource>();
+        grunts = gameObject.GetComponents<AudioSource>();
     }
 	
 	// Update is called once per frame
