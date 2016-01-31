@@ -42,7 +42,8 @@ public class PoseDetection : MonoBehaviour {
 			count = count + 1; //new
 			UpdateScore();     //new
             GameObject.Find("BackgroundImage").GetComponent<MakeItRain>().Rain();
-		}
+            GameObject.Find("DancingLightsSpawner").GetComponent<ParticleSpawner>().spawnParticles();
+        }
 	}
 
 	void UpdateScore(){ //new
