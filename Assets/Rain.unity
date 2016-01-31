@@ -249,7 +249,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 328088211}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 32ccfd4e7cdde4043bfecba4ff8bf84e, type: 3}
   m_Name: 
@@ -395,6 +395,7 @@ GameObject:
   - 212: {fileID: 797513238}
   - 50: {fileID: 797513237}
   - 60: {fileID: 797513240}
+  - 114: {fileID: 797513239}
   m_Layer: 0
   m_Name: torso
   m_TagString: Untagged
@@ -461,6 +462,17 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!114 &797513239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 797513235}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f91100cf629754ad99fec9a751dc1adf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!60 &797513240
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -815,7 +827,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1471579232}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 32ccfd4e7cdde4043bfecba4ff8bf84e, type: 3}
   m_Name: 
@@ -944,7 +956,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1640011549}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 32ccfd4e7cdde4043bfecba4ff8bf84e, type: 3}
   m_Name: 
