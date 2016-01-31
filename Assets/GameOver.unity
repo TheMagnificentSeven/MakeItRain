@@ -192,7 +192,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 879b31ebe6a09a841bda3c0510d8176c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textbox: {fileID: 0}
+  textbox: {fileID: 168685787}
 --- !u!114 &168685790
 MonoBehaviour:
   m_ObjectHideFlags: 0
