@@ -2,6 +2,7 @@
 using UnityEngine.UI; //new
 using System.Collections;
 using System.Collections.Generic;
+using System;
 
 public class PoseDetection : MonoBehaviour {
 	Launch launchHandler;
@@ -63,10 +64,37 @@ public class PoseDetection : MonoBehaviour {
 			UpdateScore();     //new
             GameObject.Find("BackgroundImage").GetComponent<MakeItRain>().Rain();
             GameObject.Find("DancingLightsSpawner").GetComponent<ParticleSpawner>().spawnParticles();
+            setArrow(poseArrayCounter);
         }
 	}
 
-	void UpdateScore(){ //new
+    private void setArrow(int poseArrayCounter)
+    {
+        SpriteRenderer leftarrow = GameObject.Find("leftarrow").GetComponent<SpriteRenderer>();
+        SpriteRenderer midarrow = GameObject.Find("midarrow").GetComponent<SpriteRenderer>();
+        SpriteRenderer rightarrow = GameObject.Find("rightarrow").GetComponent<SpriteRenderer>();
+
+        switch (poseArrayCounter)
+        {
+            case 0:
+                leftarrow.enabled = true;
+                midarrow.enabled = false;
+                rightarrow.enabled = false;
+                break;
+            case 1:
+                leftarrow.enabled = false;
+                midarrow.enabled = true;
+                rightarrow.enabled = false;
+                break;
+            case 2:
+                leftarrow.enabled = false;
+                midarrow.enabled = false;
+                rightarrow.enabled = true;
+                break;
+        }
+    }
+
+    void UpdateScore(){ //new
 		scoreText.text = "SCORE : " + count.ToString();
 	}
 }
