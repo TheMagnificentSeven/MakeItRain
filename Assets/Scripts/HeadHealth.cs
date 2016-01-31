@@ -39,13 +39,14 @@ public class HeadHealth : MonoBehaviour
         {
             Debug.Log(health);
             int damage = rain.GetComponent<RainWatcher>().getDamage();
+            Debug.Log(damage);
             if (damage < 0)
             {
                 healDamage(0 - (damage));
                 Destroy(rain);
             }
             else
-                takeDamage(damage);
+                takeDamage(damage*v);
         }
     }
 
