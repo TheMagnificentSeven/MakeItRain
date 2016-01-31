@@ -19,7 +19,7 @@ public class RainWatcher : MonoBehaviour {
         }
     }
 
-    public int getDmg()
+    public int getDamage()
     {
         return damage;
     }
