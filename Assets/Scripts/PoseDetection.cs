@@ -81,9 +81,8 @@ public class PoseDetection : MonoBehaviour {
 			GameObject.Find("BackgroundImage").GetComponent<MakeItRain>().Rain();
 
 		}
-
-        //TODO Uncomment once TimerText is ready
-		//UpdateTime (); //NEW
+	
+		UpdateTime (); //NEW
 	
 	}
 
@@ -94,12 +93,13 @@ public class PoseDetection : MonoBehaviour {
 			timerText.text = "TIMER : 0";
 		}
 
-		if (correctCount == 3) {
+		if (correctCount % 3 == 0) {
+			timeLeft = 31;
 			//TO DO: if all 3 posts correct, then do sth.
 		}
 	}
 
-    void UpdateScore(){ //new
+    void UpdateScore(){ 
 		scoreText.text = "SCORE : " + score.ToString();
 	}
 
