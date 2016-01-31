@@ -25,7 +25,13 @@ using System.Collections.Generic;
 	public void Generate() {
 		poseList.Clear ();
     	for(int i = 0; i < numPose ; i++) {
-			poseList.Add(poses[Random.Range(0, poses.Count)]);
+			int randomNum = Random.Range (0, poses.Count);
+			if (i > 0) {
+				while (poses [randomNum].getId ().Equals (poseList [i - 1].getId ())) {
+					randomNum = Random.Range (0, poses.Count);
+				}
+			}
+			poseList.Add(poses[randomNum]);
 			if (listOfPoseGameObject.Count > 0) {
 				Destroy (listOfPoseGameObject [i]);
 			}
