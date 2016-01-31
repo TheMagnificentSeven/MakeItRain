@@ -8,11 +8,12 @@ public class HeadHealth : MonoBehaviour {
     private int lightDmg = 1;
     private int heavyDmg = 3;
 	private static int MAX_HEALTH = 100;
+    private AudioSource[] grunts;
 
 	// Use this for initialization
 	void Start () {
-
-	}
+        grunts = GetComponents<AudioSource>();
+    }
 	
 	// Update is called once per frame
     void Update() {
@@ -33,9 +34,17 @@ public class HeadHealth : MonoBehaviour {
         else
         {
             if (rain.name == "dangerousObj(Clone)")
+            {
                 takeDamage(heavyDmg * v);
+                grunts[0].Play();
+            }
+                
             else if (rain.name == "mediumObj(Clone)")
+            {
                 takeDamage(lightDmg * v);
+                grunts[1].Play();
+            }
+                
         }
     }
 
