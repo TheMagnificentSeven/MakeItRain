@@ -76,33 +76,45 @@ public class MakeItRain : MonoBehaviour
             level++;
         }
 
-        int value = 1;
+        Debug.Log(timer);
+
+        GameObject[] rainArray;
+
         switch (danceQuality)
         {
             case 1:
-                rain = GameObject.Find("Rain/Poor/" + value);
+                rainArray = GameObject.FindGameObjectsWithTag("Poor");
                 break;
             case 2:
-                rain = GameObject.Find("Rain/Fair/" + value);
+                rainArray = GameObject.FindGameObjectsWithTag("Fair");
                 break;
             case 3: 
-                rain = GameObject.Find("Rain/Good/" + value);
+                rainArray = GameObject.FindGameObjectsWithTag("Good");
                 break;
              default:
-                rain = GameObject.Find("Rain/Bad/" + value);
+                rainArray = GameObject.FindGameObjectsWithTag("Bad");
                 break;
         }
 
+        // pick an object
+        int randomNumber = Random.Range(0, rainArray.Length + 1);
+        GameObject rain = rainArray[randomNumber];
+
         // determine numObjects using object size!
         float width = rain.GetComponent<BoxCollider2D>().size.x;
-        numObjects = (int) Mathf.Ceil(4.0f/width);
+        numObjects = (int) Mathf.Ceil(6.0f/width);
+        if (width <= 1)
+            numObjects = numObjects * 2;
+        if (danceQuality == 3)
+            numObjects = 5;
         for (int i = 0; i < numObjects; i++)
         {
             float x_rand = Random.Range(minX, maxX - width);
             float y_rand = Random.Range(1f, 3f);
             rainClone = (GameObject) Instantiate(rain, new Vector3(x_rand, rain.transform.position.y - y_rand, rain.transform.position.z), rain.transform.rotation);
             rainClone.GetComponent<Rigidbody2D>().gravityScale = 1;
-            rainClone.GetComponent<RainWatcher>().setDmg((2 - danceQuality) * value);
+            rainClone.GetComponent<RainWatcher>();
+            rainClone.tag = "Untagged";
             Collider2D rainCol = rainClone.GetComponent<BoxCollider2D>();
             Collider2D leftWall = GameObject.Find("LeftWall").GetComponent<BoxCollider2D>();
             Collider2D rightWall = GameObject.Find("RightWall").GetComponent<BoxCollider2D>();

@@ -3,7 +3,7 @@ using System.Collections;
 
 public class RainWatcher : MonoBehaviour {
 
-    private int damage;
+    [SerializeField] private int damage;
 
     // Use this for initialization
     void Start() {
@@ -22,10 +22,5 @@ public class RainWatcher : MonoBehaviour {
     public int getDmg()
     {
         return damage;
-    }
-
-    public void setDmg(int value)
-    {
-       damage = value;
     }
 }
