@@ -31,6 +31,7 @@ public class PoseDetection : MonoBehaviour {
 				&& rightLeg.getJointAngle() >= expectedPose.getRightLeg() - threshold)){
 			// Yay you got the pose!
 			Debug.Log("Yay you got the pose!");
+            GameObject.Find("BackgroundImage").GetComponent<MakeItRain>().Rain();
 		}
 	}
 }

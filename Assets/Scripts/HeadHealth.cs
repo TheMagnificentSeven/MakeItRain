@@ -3,7 +3,7 @@ using System.Collections;
 
 public class HeadHealth : MonoBehaviour {
 
-    private int health = 100;
+    private int health = 500;
     private bool dead;
     private int lightDmg = 1;
     private int heavyDmg = 3;
