@@ -71,6 +71,10 @@ public class PoseDetection : MonoBehaviour {
 			poseArrayCounter++;   //new
 			GameObject.Find("BackgroundImage").GetComponent<MakeItRain>().Rain();
 			GameObject.Find("DancingLightsSpawner").GetComponent<ParticleSpawner>().spawnParticles();
+            if (poseArrayCounter % 3 == 0)
+            {
+                GameObject.Find("BigDancingLightsSpawner").GetComponent<ParticleSpawner>().spawnParticles();
+            }
 			setArrow(poseArrayCounter);
 
 			correctCount = correctCount + 1; 
