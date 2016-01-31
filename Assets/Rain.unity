@@ -254,7 +254,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32ccfd4e7cdde4043bfecba4ff8bf84e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 500
+  speed: 100
   key: 119
   minAngle: -30
   maxAngle: 90
@@ -612,7 +612,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32ccfd4e7cdde4043bfecba4ff8bf84e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 500
+  speed: 100
   key: 112
   minAngle: -110
   maxAngle: 90
@@ -826,7 +826,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32ccfd4e7cdde4043bfecba4ff8bf84e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 500
+  speed: 100
   key: 111
   minAngle: -90
   maxAngle: 30
@@ -958,7 +958,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32ccfd4e7cdde4043bfecba4ff8bf84e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 500
+  speed: 100
   key: 113
   minAngle: -80
   maxAngle: 110
