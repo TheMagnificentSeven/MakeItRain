@@ -1,8 +1,5 @@
 ﻿using UnityEngine;
-using UnityEngine.UI; 
-using System.Collections;
 using System.Collections.Generic;
-using System;
 
 public class PoseDetection : MonoBehaviour {
 	Launch launchHandler;
@@ -10,21 +7,11 @@ public class PoseDetection : MonoBehaviour {
 	int poseArrayCounter;
 	GenerateMove generateMove;
 	List<Pose> listOfGenPose;
-
-	public Text scoreText; 
-	public Text timerText; 
-	float timeLeft = 31; //ALTHOUGH 31 HERE, COUNT WILL START AT 30 
-
-	private int score;
 	private int correctCount; 
 
 	// Use this for initialization
 	void Start () {
 		launchHandler = GameObject.Find ("BackgroundImage").GetComponent<Launch> ();
-		score = 0;  
-		UpdateScore(); 
-
-		correctCount = 0; 
 		generateMove = GameObject.Find ("BackgroundImage").GetComponent<GenerateMove> ();
 		poseArrayCounter = -1; // Indicating it hasn't generated new poses yet
 	}
@@ -52,55 +39,32 @@ public class PoseDetection : MonoBehaviour {
 		XRotate rightArm = GameObject.Find ("rightArm").GetComponent<XRotate> ();
 		XRotate leftLeg = GameObject.Find ("leftLeg").GetComponent<XRotate> ();
 		XRotate rightLeg = GameObject.Find ("rightLeg").GetComponent<XRotate> ();
+        
 
-		timeLeft -= Time.deltaTime;
+        if ((leftArm.getJointAngle() <= expectedPose.getLeftArm() + threshold
+            && leftArm.getJointAngle() >= expectedPose.getLeftArm() - threshold)
+            && (leftLeg.getJointAngle() <= expectedPose.getLeftLeg() + threshold
+                && leftLeg.getJointAngle() >= expectedPose.getLeftLeg() - threshold)
+            && (rightArm.getJointAngle() <= expectedPose.getRightArm() + threshold
+                && rightArm.getJointAngle() >= expectedPose.getRightArm() - threshold)
+            && (rightLeg.getJointAngle() <= expectedPose.getRightLeg() + threshold
+                && rightLeg.getJointAngle() >= expectedPose.getRightLeg() - threshold))
+        {
+            // Yay you got the pose!
+            // Next Pose
+            poseArrayCounter++;   //new
+            setArrow(poseArrayCounter);
 
-		if ((leftArm.getJointAngle() <= expectedPose.getLeftArm() + threshold 
-			&& leftArm.getJointAngle() >= expectedPose.getLeftArm() - threshold)
-			&& (leftLeg.getJointAngle() <= expectedPose.getLeftLeg() + threshold 
-				&& leftLeg.getJointAngle() >= expectedPose.getLeftLeg() - threshold)
-			&& (rightArm.getJointAngle() <= expectedPose.getRightArm() + threshold 
-				&& rightArm.getJointAngle() >= expectedPose.getRightArm() - threshold)
-			&& (rightLeg.getJointAngle() <= expectedPose.getRightLeg() + threshold 
-				&& rightLeg.getJointAngle() >= expectedPose.getRightLeg() - threshold)){
-			// Yay you got the pose!
-			//Debug.Log("Yay you got the pose!");
-			score = score + 1; 
-			UpdateScore(); 
-			GameObject.Find("BackgroundImage").GetComponent<MakeItRain>().Rain();
-			poseArrayCounter++;   //new
-			GameObject.Find("BackgroundImage").GetComponent<MakeItRain>().Rain();
-			GameObject.Find("DancingLightsSpawner").GetComponent<ParticleSpawner>().spawnParticles();
+            // Celebratory sparkles
+            GameObject.Find("DancingLightsSpawner").GetComponent<ParticleSpawner>().spawnParticles();
+
+            // We've finished three poses, make it rain!
             if (poseArrayCounter % 3 == 0)
             {
                 GameObject.Find("BigDancingLightsSpawner").GetComponent<ParticleSpawner>().spawnParticles();
+                GameObject.Find("BackgroundImage").GetComponent<MakeItRain>().Rain();
             }
-			setArrow(poseArrayCounter);
-
-			correctCount = correctCount + 1; 
-			GameObject.Find("BackgroundImage").GetComponent<MakeItRain>().Rain();
-
-		}
-	
-		UpdateTime (); //NEW
-	
-	}
-
-	void UpdateTime(){ 
-		if (timeLeft > 0) {
-			timerText.text = "TIMER : " + ((int)timeLeft).ToString ();
-		} else {
-			timerText.text = "TIMER : 0";
-		}
-
-		if (correctCount % 3 == 0) {
-			timeLeft = 31;
-			//TO DO: if all 3 posts correct, then do sth.
-		}
-	}
-
-    void UpdateScore(){ 
-		scoreText.text = "SCORE : " + score.ToString();
+        }
 	}
 
 	private void setArrow(int poseArrayCounter)
