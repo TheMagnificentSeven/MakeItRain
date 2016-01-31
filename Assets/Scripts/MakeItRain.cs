@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class MakeItRain : MonoBehaviour
@@ -9,48 +10,73 @@ public class MakeItRain : MonoBehaviour
     private GameObject rain;
     private GameObject rainClone;
     private int danceQuality; // 0 is worst, 3 is best
-    float maxTimer = 30;
+    float startTimer = 31;
     float timer;
     int level = 0;
+    int score = 0;
+    public Text timerText;
+    public Text scoreText;
 
     // Use this for initialization
     void Start()
     {
+        UpdateScore();
         InitializeTimer();
+        danceQuality = -1;
     }
 
-    // Update is called once per frame
-    // Just for test
     void Update()
     {
+        UpdateTime();
+    }
+
+    // Controls Timer
+    void UpdateTime()
+    {
         timer -= Time.deltaTime;
-        if (timer < 0)
+        if (timer > 0)
         {
+            timerText.text = "TIMER : " + ((int) timer).ToString();
+        }
+        else {
+            if (startTimer <= 0)
+            {
+                UnityEngine.SceneManagement.SceneManager.LoadScene("GameOver");
+            }
+
+            timerText.text = "TIMER : 0";
             timer = 0;
             danceQuality = 0;
             Rain();
         }
-         
     }
     
-    // Rain calls this
+    void UpdateScore()
+    {
+            scoreText.text = "SCORE : " + score.ToString();
+    }
+
+    // Rain also calls this
     void InitializeTimer()
     {
-        maxTimer = maxTimer - level;
-        timer = maxTimer;
-        level++;
+        timer = startTimer - level;
+        UpdateTime();
     }
     
     // Called only when dance is finished or time is out
     public void Rain()
     {
+        // Debug.Log(danceQuality);
      // figure out danceQuality depending on how much time timer has left
         if (danceQuality != 0)
         {
-            danceQuality = (int) Mathf.Ceil(timer*3 / maxTimer);
+            danceQuality = (int) Mathf.Ceil(timer*3 / startTimer);
+            score = score + level + (int) timer;
+            UpdateScore();
+            level++;
         }
 
-        int value = Random.Range(1,5); //
+        int value = 1;
         switch (danceQuality)
         {
             case 1:
@@ -87,5 +113,6 @@ public class MakeItRain : MonoBehaviour
         // Restart
         danceQuality = -1;
         InitializeTimer();
+        Debug.Log(timer);
     }
 }
