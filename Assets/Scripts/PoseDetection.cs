@@ -74,7 +74,7 @@ public class PoseDetection : MonoBehaviour {
         SpriteRenderer midarrow = GameObject.Find("midarrow").GetComponent<SpriteRenderer>();
         SpriteRenderer rightarrow = GameObject.Find("rightarrow").GetComponent<SpriteRenderer>();
 
-        switch (poseArrayCounter)
+        switch (poseArrayCounter%3)
         {
             case 0:
                 leftarrow.enabled = true;
