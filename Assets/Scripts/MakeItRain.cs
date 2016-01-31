@@ -69,7 +69,7 @@ public class MakeItRain : MonoBehaviour
      // figure out danceQuality depending on how much time timer has left
         if (danceQuality != 0)
         {
-            danceQuality = (int) Mathf.Ceil(timer*3/ startTimer);
+            danceQuality = (int) Mathf.Ceil(timer*3/(startTimer - level));
             ScoreManager.score = ScoreManager.score + level + (int) timer;
             UpdateScore();
             level++;
@@ -100,11 +100,11 @@ public class MakeItRain : MonoBehaviour
         // determine numObjects using object size!
         float width = rain.GetComponent<BoxCollider2D>().size.x;
         float damage = (float) rain.GetComponent<RainWatcher>().getDamage();
-        numObjects = (int)Mathf.Ceil(20.0f / damage);
+        numObjects = (int)Mathf.Ceil(25.0f / damage);
         if (width <= 0.5)
             numObjects = numObjects * 2;
         if (danceQuality == 3)
-            numObjects = 5;
+            numObjects = 10;
         else if (danceQuality == 2)
             numObjects = (int)Mathf.Ceil(6.0f / width);
         for (int i = 0; i < numObjects; i++)
