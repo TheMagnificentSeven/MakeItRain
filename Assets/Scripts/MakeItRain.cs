@@ -13,7 +13,6 @@ public class MakeItRain : MonoBehaviour
     float startTimer = 31;
     float timer;
     int level = 0;
-    int score = 0;
     public Text timerText;
     public Text scoreText;
 
@@ -53,7 +52,7 @@ public class MakeItRain : MonoBehaviour
     
     void UpdateScore()
     {
-            scoreText.text = "SCORE : " + score.ToString();
+            scoreText.text = "SCORE : " + ScoreManager.score.ToString();
     }
 
     // Rain also calls this
@@ -71,7 +70,7 @@ public class MakeItRain : MonoBehaviour
         if (danceQuality != 0)
         {
             danceQuality = (int) Mathf.Ceil(timer*3 / startTimer);
-            score = score + level + (int) timer;
+            ScoreManager.score = ScoreManager.score + level + (int) timer;
             UpdateScore();
             level++;
         }

@@ -7,17 +7,14 @@ public class score : MonoBehaviour {
     GameObject textbox;
 
 	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
-
-    public void setScore(int score)
+	void Start ()
     {
-        textbox.GetComponent<Text>().text = "Score: " + score;
+        textbox.GetComponent<Text>().text = "Score: " + ScoreManager.score;
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
     }
 }
