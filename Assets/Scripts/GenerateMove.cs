@@ -13,6 +13,7 @@ using System.Collections.Generic;
 
 	int numPose = 3; float x; float y = (float)(1.9);
 	Pose currentPose;
+    int lastIndex = -1;
 
     void Start() {
         accessPose = GetComponent<Launch> ();
@@ -25,13 +26,14 @@ using System.Collections.Generic;
 	public void Generate() {
 		poseList.Clear ();
     	for(int i = 0; i < numPose ; i++) {
-			int randomNum = Random.Range (0, poses.Count);
-			if (i > 0) {
-				while (poses [randomNum].getId ().Equals (poseList [i - 1].getId ())) {
-					randomNum = Random.Range (0, poses.Count);
-				}
-			}
-			poseList.Add(poses[randomNum]);
+            int nextIndex;
+            do
+            {
+                nextIndex = Random.Range(0, poses.Count);
+            } while (nextIndex == lastIndex);
+
+			poseList.Add(poses[nextIndex]);
+            lastIndex = nextIndex;
 			if (listOfPoseGameObject.Count > 0) {
 				Destroy (listOfPoseGameObject [i]);
 			}

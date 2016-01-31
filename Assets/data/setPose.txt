@@ -2,8 +2,8 @@
 	{
 		"id": "1",
 	 	"image" : "p_1.png",
-	 	"LeftArm" : "-60",
-	 	"RightArm": "60",
+	 	"LeftArm" : "-80",
+	 	"RightArm": "80",
 	 	"LeftLeg" : "90",
 	 	"RightLeg" : "-90"
  	},
@@ -26,7 +26,7 @@
  	{
 	 	"id": "4",
 	 	"image" : "p_4.png",
-	 	"LeftArm" : "-60",
+	 	"LeftArm" : "-80",
 	 	"RightArm": "-110",
 	 	"LeftLeg" : "90",
 	 	"RightLeg" : "10"
@@ -35,9 +35,9 @@
 	 	"id": "5",
 	 	"image" : "p_5.png",
 	 	"LeftArm" : "110",
-	 	"RightArm": "60",
+	 	"RightArm": "80",
 	 	"LeftLeg" : "-10",
-	 	"RightLeg" : "10"
+	 	"RightLeg" : "-90"
  	},
  	{
 	 	"id": "6",
@@ -50,8 +50,8 @@
  	{
 	 	"id": "7",
 	 	"image" : "p_7.png",
-	 	"LeftArm" : "-60",
-	 	"RightArm": "60",
+	 	"LeftArm" : "-80",
+	 	"RightArm": "80",
 	 	"LeftLeg" : "90",
 	 	"RightLeg" : "10"
  	}
