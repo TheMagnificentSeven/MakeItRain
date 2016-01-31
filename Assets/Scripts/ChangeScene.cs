@@ -16,6 +16,6 @@ public class ChangeScene: MonoBehaviour {
 	}
 
 	public void goToNextLevel() {
-		Application.LoadLevel (nextLevel);
+        UnityEngine.SceneManagement.SceneManager.LoadScene(nextLevel);
 	}
 }
