@@ -3,7 +3,7 @@ using System.Collections;
 
 public class PoseDetection : MonoBehaviour {
 	Launch launchHandler;
-	float threshold = 15;
+	float threshold = 20;
 
 	// Use this for initialization
 	void Start () {
@@ -14,7 +14,7 @@ public class PoseDetection : MonoBehaviour {
 	void Update () {
 
 		// TODO: Retrieve the randomized pose from GenerateMove
-		Pose expectedPose = launchHandler.GetPose()[0];
+		Pose expectedPose = launchHandler.GetPose()[1];
 
 		XRotate leftArm = GameObject.Find ("leftArm").GetComponent<XRotate> ();
 		XRotate rightArm = GameObject.Find ("rightArm").GetComponent<XRotate> ();
@@ -30,7 +30,7 @@ public class PoseDetection : MonoBehaviour {
 			&& (rightLeg.getJointAngle() <= expectedPose.getRightLeg() + threshold 
 				&& rightLeg.getJointAngle() >= expectedPose.getRightLeg() - threshold)){
 			// Yay you got the pose!
-			Debug.Log("Yay!");
+			Debug.Log("Yay you got the pose!");
 		}
 	}
 }
