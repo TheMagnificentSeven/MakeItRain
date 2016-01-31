@@ -1405,12 +1405,12 @@ MonoBehaviour:
   m_Script: {fileID: 1980459831, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 1
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -2725,14 +2725,14 @@ RectTransform:
   m_GameObject: {fileID: 1727061473}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.425, y: 1.1999999, z: 1}
   m_Children: []
   m_Father: {fileID: 869482378}
   m_RootOrder: 0
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 176.4, y: 154.2}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 341, y: 210}
+  m_SizeDelta: {x: 180, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1727061475
 MonoBehaviour:
@@ -2746,7 +2746,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0.30203643, b: 0.6544118, a: 1}
+  m_Color: {r: 0.86764705, g: 0.23605105, b: 0.23605105, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -3080,14 +3080,14 @@ RectTransform:
   m_GameObject: {fileID: 1974444137}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.681716, y: 1.2874945, z: 1}
   m_Children: []
   m_Father: {fileID: 869482378}
   m_RootOrder: 1
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -137.3, y: 134.2}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: -206, y: 206}
+  m_SizeDelta: {x: 180, y: 39}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1974444139
 MonoBehaviour:
@@ -3101,7 +3101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.025410883, g: 0.16774693, b: 0.6911765, a: 1}
+  m_Color: {r: 0.5808823, g: 0.2562716, b: 0.30938983, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
