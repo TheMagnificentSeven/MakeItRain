@@ -8,6 +8,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Start.unity
   - enabled: 1
+    path: Assets/Help.unity
+  - enabled: 1
     path: Assets/Rain.unity
   - enabled: 1
     path: Assets/GameOver.unity
