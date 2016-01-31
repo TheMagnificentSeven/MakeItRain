@@ -1064,6 +1064,7 @@ GameObject:
   - 114: {fileID: 1391520437}
   - 114: {fileID: 1391520439}
   - 114: {fileID: 1391520440}
+  - 114: {fileID: 1391520441}
   m_Layer: 0
   m_Name: BackgroundImage
   m_TagString: Untagged
@@ -1157,6 +1158,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0263c6c59cce5a47929359e57388504, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1391520441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1391520434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f42f50efa8c2c4c998f9297ff3dc9d20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  barDisplay: 0
+  pos: {x: 300, y: 50}
+  size: {x: 100, y: 20}
+  emptyTex: {fileID: 0}
+  fullTex: {fileID: 0}
 --- !u!1 &1683996543
 GameObject:
   m_ObjectHideFlags: 0
