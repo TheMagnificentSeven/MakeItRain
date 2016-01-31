@@ -26,7 +26,7 @@ public class HeadHealth : MonoBehaviour {
         if (v <= 5) v = 0;
         if (rain.name == "healObj(Clone)")
         {
-            healDamage(heavyDmg*v);
+            healDamage(lightDmg);
             Destroy(rain);
         }
         else
@@ -42,7 +42,6 @@ public class HeadHealth : MonoBehaviour {
     {
         health -= (int)damage;
         // Dan plays sound of pain
-        //Debug.Log(health);
         if (health <= 0 && !dead)
         {
             dead = true;
@@ -54,6 +53,8 @@ public class HeadHealth : MonoBehaviour {
     void healDamage(float heal)
     {
         health += (int) heal;
+        if (health > 500)
+            health = 500;
         // Dan plays healing noise
     }
 }

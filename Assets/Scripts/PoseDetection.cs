@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI; //new
 using System.Collections;
 using System.Collections.Generic;
 
@@ -9,11 +10,17 @@ public class PoseDetection : MonoBehaviour {
 	GenerateMove generateMove;
 	List<Pose> listOfGenPose;
 
+	public Text scoreText; // new
+	private int count; //new
+
+
 	// Use this for initialization
 	void Start () {
 		launchHandler = GameObject.Find ("BackgroundImage").GetComponent<Launch> ();
 		generateMove = GameObject.Find ("BackgroundImage").GetComponent<GenerateMove> ();
 		poseArrayCounter = -1; // Indicating it hasn't generated new poses yet
+		count = 0; //new
+		UpdateScore(); //new
 	}
 	
 	// Update is called once per frame
@@ -52,7 +59,14 @@ public class PoseDetection : MonoBehaviour {
 			//Debug.Log("Yay you got the pose!");
             GameObject.Find("BackgroundImage").GetComponent<MakeItRain>().Rain();
 			poseArrayCounter++;
-		}
+			count = count + 1; //new
+			UpdateScore();     //new
+            GameObject.Find("BackgroundImage").GetComponent<MakeItRain>().Rain();
+            GameObject.Find("DancingLightsSpawner").GetComponent<ParticleSpawner>().spawnParticles();
+        }
+	}
 
+	void UpdateScore(){ //new
+		scoreText.text = "SCORE : " + count.ToString();
 	}
 }
