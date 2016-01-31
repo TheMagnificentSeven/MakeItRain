@@ -8,6 +8,7 @@ using System.Collections.Generic;
 	Launch accessPose;
 	List<Pose> poses;
 	List<Pose> poseList;
+	List<GameObject> listOfPoseGameObject;
 	private SpriteRenderer spriteRender;
 
 	int numPose = 3; float x; float y = (float)(1.9);
@@ -17,19 +18,24 @@ using System.Collections.Generic;
         accessPose = GetComponent<Launch> ();
 		poses = accessPose.GetPose ();
 		poseList = new List<Pose> ();
-		Generate ();
+		listOfPoseGameObject = new List<GameObject> ();
+		//Generate ();
+    }
+
+	public void Generate() {
+		poseList.Clear ();
+    	for(int i = 0; i < numPose ; i++) {
+			poseList.Add(poses[Random.Range(0, poses.Count)]);
+			if (listOfPoseGameObject.Count > 0) {
+				Destroy (listOfPoseGameObject [i]);
+			}
+		}
+		listOfPoseGameObject.Clear ();
 		InitX ();
 		Show ();
     }
 
-	void Generate() {
-		poseList.Clear ();
-    	for(int i = 0; i < numPose ; i++) {
-			poseList.Add(poses[Random.Range(0, poses.Count)]);
-			}
-    }
-
-	public List<Pose> getGeneratedPoseLists() {
+	public List<Pose> GetGeneratedPoseList() {
 		return poseList;
 	}
 
@@ -46,11 +52,12 @@ using System.Collections.Generic;
 	}
 
 	void Show(){
-		Debug.Log (Screen.width);
+		//Debug.Log (Screen.width);
 		for(int i = 0; i < numPose ; i++) {
 			string img_num = poseList[i].getId();
 			GameObject pose_s = GameObject.Find("p_" + img_num);
 			GameObject pos_s = (GameObject)Instantiate(pose_s, new Vector3(x, y, 0), Quaternion.identity);
+			listOfPoseGameObject.Add (pos_s);
 			SetX ();
 		}
 	}

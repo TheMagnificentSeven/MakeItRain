@@ -42,7 +42,7 @@ public class HeadHealth : MonoBehaviour {
     {
         health -= (int)damage;
         // Dan plays sound of pain
-        Debug.Log(health);
+        //Debug.Log(health);
         if (health <= 0 && !dead)
         {
             dead = true;

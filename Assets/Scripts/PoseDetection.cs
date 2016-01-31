@@ -1,20 +1,39 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class PoseDetection : MonoBehaviour {
 	Launch launchHandler;
 	float threshold = 20;
+	int poseArrayCounter;
+	GenerateMove generateMove;
+	List<Pose> listOfGenPose;
 
 	// Use this for initialization
 	void Start () {
 		launchHandler = GameObject.Find ("BackgroundImage").GetComponent<Launch> ();
+		generateMove = GameObject.Find ("BackgroundImage").GetComponent<GenerateMove> ();
+		poseArrayCounter = -1; // Indicating it hasn't generated new poses yet
 	}
 	
 	// Update is called once per frame
 	void Update () {
-
-		// TODO: Retrieve the randomized pose from GenerateMove
-		Pose expectedPose = launchHandler.GetPose()[1];
+		
+		// Retrive the current pose from the list of generated poses
+		if (poseArrayCounter == -1) {
+			//Debug.Log ("Generating...");
+			generateMove.Generate ();
+			listOfGenPose = generateMove.GetGeneratedPoseList ();
+			poseArrayCounter = 0;
+		}
+		if (poseArrayCounter > listOfGenPose.Count - 1) {
+			//Debug.Log (listOfGenPose.Count);
+			//Debug.Log ("Resetting");
+			poseArrayCounter = -1;
+			return;
+		}
+			
+		Pose expectedPose = listOfGenPose[poseArrayCounter];
 
 		XRotate leftArm = GameObject.Find ("leftArm").GetComponent<XRotate> ();
 		XRotate rightArm = GameObject.Find ("rightArm").GetComponent<XRotate> ();
@@ -30,8 +49,10 @@ public class PoseDetection : MonoBehaviour {
 			&& (rightLeg.getJointAngle() <= expectedPose.getRightLeg() + threshold 
 				&& rightLeg.getJointAngle() >= expectedPose.getRightLeg() - threshold)){
 			// Yay you got the pose!
-			Debug.Log("Yay you got the pose!");
+			//Debug.Log("Yay you got the pose!");
             GameObject.Find("BackgroundImage").GetComponent<MakeItRain>().Rain();
+			poseArrayCounter++;
 		}
+
 	}
 }
