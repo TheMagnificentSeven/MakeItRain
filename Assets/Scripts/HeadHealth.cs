@@ -3,7 +3,7 @@ using System.Collections;
 
 public class HeadHealth : MonoBehaviour {
 
-    private int health = 500;
+    private int health = 100;
     private bool dead;
     private int lightDmg = 1;
     private int heavyDmg = 3;
@@ -23,7 +23,7 @@ public class HeadHealth : MonoBehaviour {
         if (rain.name.Equals("LeftWall") || rain.name.Equals("RightWall") || rain.name.Equals("Floor"))
             return;
         float v = rain.GetComponent<Rigidbody2D>().velocity.magnitude;
-        if (v <= 10) v = 0;
+        if (v <= 5) v = 0;
         if (rain.name == "healObj(Clone)")
         {
             healDamage(heavyDmg*v);
