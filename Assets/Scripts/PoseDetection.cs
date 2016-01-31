@@ -1,13 +1,21 @@
 ﻿using UnityEngine;
+using UnityEngine.UI; //new
 using System.Collections;
 
 public class PoseDetection : MonoBehaviour {
 	Launch launchHandler;
 	float threshold = 20;
 
+	public Text scoreText; // new
+	private int count; //new
+
+
 	// Use this for initialization
 	void Start () {
 		launchHandler = GameObject.Find ("BackgroundImage").GetComponent<Launch> ();
+		count = 0; //new
+		UpdateScore(); //new
+
 	}
 	
 	// Update is called once per frame
@@ -31,7 +39,13 @@ public class PoseDetection : MonoBehaviour {
 				&& rightLeg.getJointAngle() >= expectedPose.getRightLeg() - threshold)){
 			// Yay you got the pose!
 			Debug.Log("Yay you got the pose!");
+			count = count + 1; //new
+			UpdateScore();     //new
             GameObject.Find("BackgroundImage").GetComponent<MakeItRain>().Rain();
 		}
+	}
+
+	void UpdateScore(){ //new
+		scoreText.text = "SCORE : " + count.ToString();
 	}
 }
