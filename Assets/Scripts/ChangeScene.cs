@@ -1,7 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class StartButton : MonoBehaviour {
+public class ChangeScene: MonoBehaviour {
+    [SerializeField]
+    public string nextLevel;
 
 	// Use this for initialization
 	void Start () {
@@ -14,6 +16,6 @@ public class StartButton : MonoBehaviour {
 	}
 
 	public void goToNextLevel() {
-		Application.LoadLevel ("Rain");
+		Application.LoadLevel (nextLevel);
 	}
 }
