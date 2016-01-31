@@ -78,21 +78,27 @@ public class MakeItRain : MonoBehaviour
 
         Debug.Log(timer);
 
+        GameObject[] rainArray;
+
         switch (danceQuality)
         {
             case 1:
-                rain = GameObject.FindGameObjectWithTag("Poor");
+                rainArray = GameObject.FindGameObjectsWithTag("Poor");
                 break;
             case 2:
-                rain = GameObject.FindGameObjectWithTag("Fair");
+                rainArray = GameObject.FindGameObjectsWithTag("Fair");
                 break;
             case 3: 
-                rain = GameObject.FindGameObjectWithTag("Good");
+                rainArray = GameObject.FindGameObjectsWithTag("Good");
                 break;
              default:
-                rain = GameObject.FindGameObjectWithTag("Bad");
+                rainArray = GameObject.FindGameObjectsWithTag("Bad");
                 break;
         }
+
+        // pick an object
+        int randomNumber = Random.Range(0, rainArray.Length + 1);
+        GameObject rain = rainArray[randomNumber];
 
         // determine numObjects using object size!
         float width = rain.GetComponent<BoxCollider2D>().size.x;
@@ -108,6 +114,7 @@ public class MakeItRain : MonoBehaviour
             rainClone = (GameObject) Instantiate(rain, new Vector3(x_rand, rain.transform.position.y - y_rand, rain.transform.position.z), rain.transform.rotation);
             rainClone.GetComponent<Rigidbody2D>().gravityScale = 1;
             rainClone.GetComponent<RainWatcher>();
+            rainClone.tag = "Untagged";
             Collider2D rainCol = rainClone.GetComponent<BoxCollider2D>();
             Collider2D leftWall = GameObject.Find("LeftWall").GetComponent<BoxCollider2D>();
             Collider2D rightWall = GameObject.Find("RightWall").GetComponent<BoxCollider2D>();
