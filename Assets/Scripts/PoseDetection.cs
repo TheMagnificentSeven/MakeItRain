@@ -81,9 +81,8 @@ public class PoseDetection : MonoBehaviour {
 			GameObject.Find("BackgroundImage").GetComponent<MakeItRain>().Rain();
 
 		}
-
-        //TODO Uncomment once TimerText is ready
-		//UpdateTime (); //NEW
+	
+		UpdateTime (); //NEW
 	
 	}
 
@@ -99,7 +98,7 @@ public class PoseDetection : MonoBehaviour {
 		}
 	}
 
-    void UpdateScore(){ //new
+    void UpdateScore(){ 
 		scoreText.text = "SCORE : " + score.ToString();
 	}
 
