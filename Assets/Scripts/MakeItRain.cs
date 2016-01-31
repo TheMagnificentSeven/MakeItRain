@@ -11,7 +11,6 @@ public class MakeItRain : MonoBehaviour
     private GameObject rainClone;
     int count = 0;
 
-
     // Use this for initialization
     void Start()
     {
@@ -32,7 +31,7 @@ public class MakeItRain : MonoBehaviour
     // Called only when dance is finished
     void Rain()
     {
-        int whichRain = Random.Range(1, 5);
+        int whichRain = Random.Range(10, 15);
         switch (whichRain)
         {
             case 1:
@@ -54,7 +53,7 @@ public class MakeItRain : MonoBehaviour
         {
             float x_rand = Random.Range(minX, maxX - rain.GetComponent<BoxCollider2D>().size.x);
             float y_rand = Random.Range(1f, 3f);
-            rainClone = (GameObject)Instantiate(rain, new Vector3(x_rand, rain.transform.position.y - y_rand, rain.transform.position.z), rain.transform.rotation);
+            rainClone = (GameObject) Instantiate(rain, new Vector3(x_rand, rain.transform.position.y - y_rand, rain.transform.position.z), rain.transform.rotation);
             rainClone.GetComponent<Rigidbody2D>().gravityScale = 1;
         }
     }

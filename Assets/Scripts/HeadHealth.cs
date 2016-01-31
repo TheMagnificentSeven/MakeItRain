@@ -3,55 +3,55 @@ using System.Collections;
 
 public class HeadHealth : MonoBehaviour {
 
-    private int health;
+    private int health = 500;
     private bool dead;
-    private int lightDmg = 100;
-    private int heavyDmg = 300;
+    private int lightDmg = 1;
+    private int heavyDmg = 3;
 
 	// Use this for initialization
 	void Start () {
-        health = 100;
-        dead = false;
+
 	}
 	
 	// Update is called once per frame
-
     void Update() {
-        if (health <= 0 && !dead) {
-            dead = true;
-            // Game Over
-            Debug.Log("Game Over!");
-        }
+
     }
 
-    void OnCollisionEnter(Collision collision) {
+    void OnCollisionEnter2D(Collision2D collision) {
         GameObject rain = collision.gameObject;
         float v = rain.GetComponent<Rigidbody2D>().velocity.magnitude;
-
-        if (rain.name == "dangerousObj")
-        {
-            takeDamage(heavyDmg*v);
-        }
-        else if (rain.name == "mediumObj")
-        {
-            takeDamage(lightDmg*v);
-        }
-        else if (rain.gameObject.name == "healObj")
+        if (v <= 10) v = 0;
+        if (rain.name == "healObj(Clone)")
         {
             healDamage(heavyDmg*v);
+            Destroy(rain);
+        }
+        else
+        {
+            if (rain.name == "dangerousObj(Clone)")
+                takeDamage(heavyDmg * v);
+            else if (rain.name == "mediumObj(Clone)")
+                takeDamage(lightDmg * v);
         }
     }
 
     void takeDamage(float damage)
     {
-        health =- (int) damage;
+        health -= (int)damage;
         // Dan plays sound of pain
         Debug.Log(health);
+        if (health <= 0 && !dead)
+        {
+            dead = true;
+            Debug.Log("game over!!");
+
+        }
     }
 
     void healDamage(float heal)
     {
-        health =+ (int) heal;
+        health += (int) heal;
         // Dan plays healing noise
     }
 }
