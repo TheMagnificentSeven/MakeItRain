@@ -21,7 +21,7 @@ public class HeadHealth : MonoBehaviour {
     void OnCollisionEnter2D(Collision2D collision) {
         GameObject rain = collision.gameObject;
         float v = rain.GetComponent<Rigidbody2D>().velocity.magnitude;
-        
+        if (v <= 10) v = 0;
         if (rain.name == "healObj(Clone)")
         {
             healDamage(heavyDmg*v);
