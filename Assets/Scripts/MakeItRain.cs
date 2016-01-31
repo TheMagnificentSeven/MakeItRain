@@ -113,6 +113,6 @@ public class MakeItRain : MonoBehaviour
         // Restart
         danceQuality = -1;
         InitializeTimer();
-        Debug.Log(timer);
+        //Debug.Log(timer);
     }
 }
