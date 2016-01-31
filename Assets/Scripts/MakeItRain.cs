@@ -76,8 +76,6 @@ public class MakeItRain : MonoBehaviour
             level++;
         }
 
-        Debug.Log(timer);
-
         GameObject[] rainArray;
 
         switch (danceQuality)
