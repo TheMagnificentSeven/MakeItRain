@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using UnityEngine.UI; //new
+using UnityEngine.UI; 
 using System.Collections;
 using System.Collections.Generic;
 using System;
@@ -65,13 +65,14 @@ public class PoseDetection : MonoBehaviour {
 				&& rightLeg.getJointAngle() >= expectedPose.getRightLeg() - threshold)){
 			// Yay you got the pose!
 			//Debug.Log("Yay you got the pose!");
+			score = score + 1; 
+			UpdateScore(); 
 			GameObject.Find("BackgroundImage").GetComponent<MakeItRain>().Rain();
 			poseArrayCounter++;   //new
 			GameObject.Find("BackgroundImage").GetComponent<MakeItRain>().Rain();
 			GameObject.Find("DancingLightsSpawner").GetComponent<ParticleSpawner>().spawnParticles();
 			setArrow(poseArrayCounter);
-			score = score + 1; 
-			UpdateScore(); 
+
 			correctCount = correctCount + 1; 
 			GameObject.Find("BackgroundImage").GetComponent<MakeItRain>().Rain();
 
