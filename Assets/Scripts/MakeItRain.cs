@@ -27,7 +27,7 @@ public class MakeItRain : MonoBehaviour
     // Called only when dance is finished
     public void Rain()
     {
-        int whichRain = Random.Range(10, 15);
+        int whichRain = Random.Range(1, 5);
         switch (whichRain)
         {
             case 1:
