@@ -70,7 +70,7 @@ public class MakeItRain : MonoBehaviour
      // figure out danceQuality depending on how much time timer has left
         if (danceQuality != 0)
         {
-            danceQuality = (int) Mathf.Ceil(timer*3 / maxTimer);
+            danceQuality = (int) Mathf.Ceil(timer*3 / startTimer);
             score = score + level + (int) timer;
             UpdateScore();
             level++;
