@@ -8,7 +8,7 @@ public class HeadHealth : MonoBehaviour
     private bool dead;
     private int lightDmg = 1;
     private int heavyDmg = 3;
-    private static int MAX_HEALTH = 100;
+    private static int MAX_HEALTH = 300;
     private AudioSource[] grunts;
 
     // Use this for initialization
