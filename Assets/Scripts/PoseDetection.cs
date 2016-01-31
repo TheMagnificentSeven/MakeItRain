@@ -1,10 +1,15 @@
 ﻿using UnityEngine;
 using UnityEngine.UI; //new
 using System.Collections;
+using System.Collections.Generic;
+using System;
 
 public class PoseDetection : MonoBehaviour {
 	Launch launchHandler;
 	float threshold = 20;
+	int poseArrayCounter;
+	GenerateMove generateMove;
+	List<Pose> listOfGenPose;
 
 	public Text scoreText; 
 	public Text timerText; 
@@ -20,13 +25,28 @@ public class PoseDetection : MonoBehaviour {
 		UpdateScore(); 
 
 		correctCount = 0; 
+		generateMove = GameObject.Find ("BackgroundImage").GetComponent<GenerateMove> ();
+		poseArrayCounter = -1; // Indicating it hasn't generated new poses yet
 	}
 	
 	// Update is called once per frame
 	void Update () {
-
-		// TODO: Retrieve the randomized pose from GenerateMove
-		Pose expectedPose = launchHandler.GetPose()[1];
+		
+		// Retrive the current pose from the list of generated poses
+		if (poseArrayCounter == -1) {
+			//Debug.Log ("Generating...");
+			generateMove.Generate ();
+			listOfGenPose = generateMove.GetGeneratedPoseList ();
+			poseArrayCounter = 0;
+		}
+		if (poseArrayCounter > listOfGenPose.Count - 1) {
+			//Debug.Log (listOfGenPose.Count);
+			//Debug.Log ("Resetting");
+			poseArrayCounter = -1;
+			return;
+		}
+			
+		Pose expectedPose = listOfGenPose[poseArrayCounter];
 
 		XRotate leftArm = GameObject.Find ("leftArm").GetComponent<XRotate> ();
 		XRotate rightArm = GameObject.Find ("rightArm").GetComponent<XRotate> ();
@@ -44,20 +64,21 @@ public class PoseDetection : MonoBehaviour {
 			&& (rightLeg.getJointAngle() <= expectedPose.getRightLeg() + threshold 
 				&& rightLeg.getJointAngle() >= expectedPose.getRightLeg() - threshold)){
 			// Yay you got the pose!
-			Debug.Log("Yay you got the pose!");
-
+			//Debug.Log("Yay you got the pose!");
+			GameObject.Find("BackgroundImage").GetComponent<MakeItRain>().Rain();
+			poseArrayCounter++;   //new
+			GameObject.Find("BackgroundImage").GetComponent<MakeItRain>().Rain();
+			GameObject.Find("DancingLightsSpawner").GetComponent<ParticleSpawner>().spawnParticles();
+			setArrow(poseArrayCounter);
 			score = score + 1; 
 			UpdateScore(); 
 			correctCount = correctCount + 1; 
-            GameObject.Find("BackgroundImage").GetComponent<MakeItRain>().Rain();
+			GameObject.Find("BackgroundImage").GetComponent<MakeItRain>().Rain();
+
 		}
 
 		UpdateTime (); //NEW
 	
-	}
-
-	void UpdateScore(){ 
-		scoreText.text = "SCORE : " + score.ToString();
 	}
 
 	void UpdateTime(){ 
@@ -68,7 +89,37 @@ public class PoseDetection : MonoBehaviour {
 		}
 
 		if (correctCount == 3) {
-		//TO DO: if all 3 posts correct, then do sth.
+			//TO DO: if all 3 posts correct, then do sth.
+		}
+	}
+
+    void UpdateScore(){ //new
+		scoreText.text = "SCORE : " + score.ToString();
+	}
+
+	private void setArrow(int poseArrayCounter)
+	{
+		SpriteRenderer leftarrow = GameObject.Find("leftarrow").GetComponent<SpriteRenderer>();
+		SpriteRenderer midarrow = GameObject.Find("midarrow").GetComponent<SpriteRenderer>();
+		SpriteRenderer rightarrow = GameObject.Find("rightarrow").GetComponent<SpriteRenderer>();
+
+		switch (poseArrayCounter%3)
+		{
+		case 0:
+			leftarrow.enabled = true;
+			midarrow.enabled = false;
+			rightarrow.enabled = false;
+			break;
+		case 1:
+			leftarrow.enabled = false;
+			midarrow.enabled = true;
+			rightarrow.enabled = false;
+			break;
+		case 2:
+			leftarrow.enabled = false;
+			midarrow.enabled = false;
+			rightarrow.enabled = true;
+			break;
 		}
 	}
 }
