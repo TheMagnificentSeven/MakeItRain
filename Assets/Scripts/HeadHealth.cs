@@ -37,6 +37,7 @@ public class HeadHealth : MonoBehaviour
 
         if (rain.name.Contains("Clone"))
         {
+            Debug.Log(health);
             int damage = rain.GetComponent<RainWatcher>().getDamage();
             if (damage < 0)
             {

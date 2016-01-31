@@ -13,10 +13,7 @@ public class RainWatcher : MonoBehaviour {
     // Update is called once per frame
     void Update() {
         if (transform.position.y <= -10)
-        {
-            Debug.Log("object destroyed!");
             Destroy(gameObject);
-        }
     }
 
     public int getDamage()
