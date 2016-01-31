@@ -3,10 +3,11 @@ using System.Collections;
 
 public class HeadHealth : MonoBehaviour {
 
-    private int health = 500;
+	private int health = MAX_HEALTH;
     private bool dead;
     private int lightDmg = 1;
     private int heavyDmg = 3;
+	private static int MAX_HEALTH = 100;
 
 	// Use this for initialization
 	void Start () {
@@ -53,8 +54,12 @@ public class HeadHealth : MonoBehaviour {
     void healDamage(float heal)
     {
         health += (int) heal;
-        if (health > 500)
-            health = 500;
+		if (health > MAX_HEALTH)
+			health = MAX_HEALTH;
         // Dan plays healing noise
     }
+
+	public float GetHealthRatio() {
+		return (float)(health) / (float)MAX_HEALTH;
+	}
 }
