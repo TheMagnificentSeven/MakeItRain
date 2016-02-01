@@ -7,11 +7,13 @@ using System.Collections.Generic;
 // Class that handles parsing of the JSON file
 public class SetPoseHandler : MonoBehaviour {
 
+	public TextAsset poseFile;
+
 	public List<Pose> handlePoseFile() {
 
 		List<Pose> poseList = new List<Pose>();
 
-		string contents = File.ReadAllText ("Assets/data/setPose.txt");
+		string contents = poseFile.text;
 		var posesObject = JSON.Parse (contents);
 		for (int i = 0; i < posesObject.Count; i++) {
 			Pose p = new Pose ();
