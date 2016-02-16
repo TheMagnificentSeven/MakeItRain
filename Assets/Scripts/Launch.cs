@@ -23,7 +23,7 @@ public class Launch : MonoBehaviour {
 		
 	}
 
-	public List<Pose> GetPose() {
+	public List<Pose> GetPoses() {
 		return poses;
 	}
 }

@@ -6,53 +6,57 @@ using System.Collections.Generic;
  {
 
 	Launch accessPose;
-	List<Pose> poses;
-	List<Pose> poseList;
-	List<GameObject> listOfPoseGameObject;
+	List<Pose> posesFromJSON;
+	List<Pose> generatedPoses;
+	List<GameObject> poseGameObjects;
 	private SpriteRenderer spriteRender;
 
-	int numPose = 3; float x; float y = (float)(1.9);
+	int totalPoses = 3; 
+	float x; 
+	float y = (float)(1.9);
 	Pose currentPose;
     int lastIndex = -1;
 
     void Start() {
         accessPose = GetComponent<Launch> ();
-		poses = accessPose.GetPose ();
-		poseList = new List<Pose> ();
-		listOfPoseGameObject = new List<GameObject> ();
+		posesFromJSON = accessPose.GetPoses();
+		generatedPoses = new List<Pose> ();
+		poseGameObjects = new List<GameObject> ();
 		//Generate ();
     }
 
 	public void Generate() {
-		poseList.Clear ();
-    	for(int i = 0; i < numPose ; i++) {
+		generatedPoses.Clear ();
+		totalPoses = CalculateTotalPoses ();
+
+    	for(int i = 0; i < totalPoses ; i++) {
             int nextIndex;
             do
             {
-                nextIndex = Random.Range(0, poses.Count);
+                nextIndex = Random.Range(0, posesFromJSON.Count);
             } while (nextIndex == lastIndex);
 
-			poseList.Add(poses[nextIndex]);
+			generatedPoses.Add(posesFromJSON[nextIndex]);
             lastIndex = nextIndex;
-			if (listOfPoseGameObject.Count > 0) {
-				Destroy (listOfPoseGameObject [i]);
+			if (poseGameObjects.Count > 0 && i < poseGameObjects.Count) {
+				Destroy (poseGameObjects [i]);
 			}
 		}
-		listOfPoseGameObject.Clear ();
+		poseGameObjects.Clear ();
 		InitX ();
 		Show ();
     }
 
 	public List<Pose> GetGeneratedPoseList() {
-		return poseList;
+		return generatedPoses;
 	}
 
-	void IncPose(){
-		numPose += 2;
+	private int CalculateTotalPoses(){
+		return 3 + ScoreManager.score / 25;
 	}
 
 	void InitX(){
-		x = -1 * (int)Mathf.Ceil(numPose % 2);
+		x = -1 * (int)Mathf.Ceil(totalPoses % 2);
 	}
 
 	void SetX(){
@@ -61,11 +65,11 @@ using System.Collections.Generic;
 
 	void Show(){
 		//Debug.Log (Screen.width);
-		for(int i = 0; i < numPose ; i++) {
-			string img_num = poseList[i].getId();
+		for(int i = 0; i < totalPoses ; i++) {
+			string img_num = generatedPoses[i].getId();
 			GameObject pose_s = GameObject.Find("p_" + img_num);
 			GameObject pos_s = (GameObject)Instantiate(pose_s, new Vector3(x, y, 0), Quaternion.identity);
-			listOfPoseGameObject.Add (pos_s);
+			poseGameObjects.Add (pos_s);
 			SetX ();
 		}
 	}
