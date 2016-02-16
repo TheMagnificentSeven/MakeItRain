@@ -10,7 +10,7 @@ using System.Collections.Generic;
 	List<Pose> generatedPoses;
 	List<GameObject> poseGameObjects;
 	private SpriteRenderer spriteRender;
-
+	const int SCORE_TO_LEVEL_UP = 50;
 	int totalPoses = 3; 
 	float x; 
 	float y = (float)(1.9);
@@ -52,7 +52,7 @@ using System.Collections.Generic;
 	}
 
 	private int CalculateTotalPoses(){
-		return 3 + ScoreManager.score / 25;
+		return 3 + ScoreManager.score / SCORE_TO_LEVEL_UP;
 	}
 
 	void InitX(){
