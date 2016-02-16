@@ -1,9 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class HeadHealth : MonoBehaviour
+public class Health : MonoBehaviour
 {
-
     private int health = MAX_HEALTH;
     private bool dead;
     private int lightDmg = 1;
@@ -37,16 +36,23 @@ public class HeadHealth : MonoBehaviour
 
         if (rain.name.Contains("Clone"))
         {
-            Debug.Log(health);
             int damage = rain.GetComponent<RainWatcher>().getDamage();
             Debug.Log(damage);
             if (damage < 0)
             {
-                healDamage(0 - (damage));
+                healDamage(0 - (10*damage));
                 Destroy(rain);
             }
             else
-                takeDamage(damage*v);
+            {
+                float multiplier;
+                if (gameObject.name.Contains("torso"))
+                    multiplier = 0.5f;
+                else
+                    multiplier = 1.0f;
+                takeDamage(damage * v* multiplier);
+            }
+                
         }
     }
 
