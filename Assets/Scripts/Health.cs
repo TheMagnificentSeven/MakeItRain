@@ -29,7 +29,7 @@ public class Health : MonoBehaviour
     void OnCollisionEnter2D(Collision2D collision)
     {
         GameObject rain = collision.gameObject;
-        if (rain.name.Equals("LeftWall") || rain.name.Equals("RightWall") || rain.name.Equals("Floor"))
+        if (rain.name.Contains("Left") || rain.name.Contains("Right") || rain.name.Equals("Floor"))
             return;
         float v = rain.GetComponent<Rigidbody2D>().velocity.magnitude;
         if (v <= 5) v = 0;
