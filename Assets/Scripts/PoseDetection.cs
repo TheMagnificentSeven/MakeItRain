@@ -65,7 +65,7 @@ public class PoseDetection : MonoBehaviour {
                 GameObject.Find("BackgroundImage").GetComponent<MakeItRain>().Rain();
             }
         }
-        if (ScoreManager.score > 500)
+        if (ScoreManager.score > 50)
         {
             lastDance();
         }
