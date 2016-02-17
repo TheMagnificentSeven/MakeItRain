@@ -605,7 +605,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 133765862}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ab495d0dc25954b4290038907a299194, type: 3}
+  m_Script: {fileID: 11500000, guid: 090931db689c67d4ab3c0a5684730dda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!231 &133765866
@@ -773,7 +773,7 @@ Transform:
   m_GameObject: {fileID: 200740338}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -2.38, y: 12.41, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_Children: []
   m_Father: {fileID: 1394372385}
   m_RootOrder: 1
@@ -1244,6 +1244,7 @@ GameObject:
   - 50: {fileID: 598439938}
   - 60: {fileID: 598439940}
   - 114: {fileID: 598439939}
+  - 114: {fileID: 598439943}
   m_Layer: 0
   m_Name: torso
   m_TagString: Untagged
@@ -1346,6 +1347,17 @@ Transform:
   - {fileID: 1192404197}
   m_Father: {fileID: 1540049893}
   m_RootOrder: 1
+--- !u!114 &598439943
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 598439937}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 090931db689c67d4ab3c0a5684730dda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &615423363
 GameObject:
   m_ObjectHideFlags: 0
@@ -2026,7 +2038,7 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.5, y: 1}
   serializedVersion: 2
   m_Size: {x: 1, y: 6}
 --- !u!4 &809621476
@@ -2036,8 +2048,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 809621474}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.5, y: -1.48, z: 100}
-  m_LocalScale: {x: 1, y: 0.5, z: 1}
+  m_LocalPosition: {x: -4.5, y: -1.8, z: 100}
+  m_LocalScale: {x: 1, y: 0.4, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 20
@@ -2441,7 +2453,7 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.5, y: 1}
   serializedVersion: 2
   m_Size: {x: 1, y: 6}
 --- !u!4 &902219908
@@ -2451,8 +2463,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 902219906}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.5, y: -1.48, z: 100}
-  m_LocalScale: {x: 1, y: 0.5, z: 1}
+  m_LocalPosition: {x: 4.5, y: -1.8, z: 100}
+  m_LocalScale: {x: 1, y: 0.4, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 19
@@ -3208,7 +3220,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f42f50efa8c2c4c998f9297ff3dc9d20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthBar: {fileID: 133765862}
+  health: 0
 --- !u!114 &1318793273
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4449,11 +4461,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 430950, guid: 66ad34efb1998514192cc0636b008967, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -2.85
+      value: -1.47
       objectReference: {fileID: 0}
     - target: {fileID: 430950, guid: 66ad34efb1998514192cc0636b008967, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 12.85
+      value: 13.45
       objectReference: {fileID: 0}
     - target: {fileID: 430950, guid: 66ad34efb1998514192cc0636b008967, type: 2}
       propertyPath: m_LocalPosition.z
@@ -4503,6 +4515,22 @@ Prefab:
     - target: {fileID: 430950, guid: 66ad34efb1998514192cc0636b008967, type: 2}
       propertyPath: m_LocalScale.z
       value: 2.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6167288, guid: 66ad34efb1998514192cc0636b008967, type: 2}
+      propertyPath: m_Size.x
+      value: 0.92
+      objectReference: {fileID: 0}
+    - target: {fileID: 6167288, guid: 66ad34efb1998514192cc0636b008967, type: 2}
+      propertyPath: m_Offset.x
+      value: -0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 6167288, guid: 66ad34efb1998514192cc0636b008967, type: 2}
+      propertyPath: m_Offset.y
+      value: 0.06
+      objectReference: {fileID: 0}
+    - target: {fileID: 6167288, guid: 66ad34efb1998514192cc0636b008967, type: 2}
+      propertyPath: m_Size.y
+      value: 0.22
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 66ad34efb1998514192cc0636b008967, type: 2}
