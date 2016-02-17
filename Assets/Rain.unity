@@ -297,7 +297,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 62545309}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 10860ddb529764d4db7492395b3d61f6, type: 3}
+  m_Script: {fileID: 11500000, guid: db004cd1424188f40ab375f2e12c5b50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   damage: -1
@@ -785,7 +785,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 200740338}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 10860ddb529764d4db7492395b3d61f6, type: 3}
+  m_Script: {fileID: 11500000, guid: db004cd1424188f40ab375f2e12c5b50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 0
@@ -919,7 +919,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 429443774}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 10860ddb529764d4db7492395b3d61f6, type: 3}
+  m_Script: {fileID: 11500000, guid: db004cd1424188f40ab375f2e12c5b50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 0
@@ -1879,7 +1879,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 682455792}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 10860ddb529764d4db7492395b3d61f6, type: 3}
+  m_Script: {fileID: 11500000, guid: db004cd1424188f40ab375f2e12c5b50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   damage: -1
@@ -2165,7 +2165,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 803244931}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 10860ddb529764d4db7492395b3d61f6, type: 3}
+  m_Script: {fileID: 11500000, guid: db004cd1424188f40ab375f2e12c5b50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 4
@@ -2488,7 +2488,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 868801950}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 10860ddb529764d4db7492395b3d61f6, type: 3}
+  m_Script: {fileID: 11500000, guid: db004cd1424188f40ab375f2e12c5b50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 2
@@ -2852,7 +2852,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1033579389}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 10860ddb529764d4db7492395b3d61f6, type: 3}
+  m_Script: {fileID: 11500000, guid: db004cd1424188f40ab375f2e12c5b50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 0
@@ -3000,7 +3000,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1042136819}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 10860ddb529764d4db7492395b3d61f6, type: 3}
+  m_Script: {fileID: 11500000, guid: db004cd1424188f40ab375f2e12c5b50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 0
@@ -3245,6 +3245,78 @@ Transform:
   m_Children: []
   m_Father: {fileID: 500012510}
   m_RootOrder: 0
+--- !u!1 &1138121412
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1138121416}
+  - 61: {fileID: 1138121415}
+  - 50: {fileID: 1138121414}
+  - 114: {fileID: 1138121413}
+  m_Layer: 0
+  m_Name: Destroyer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1138121413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1138121412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4d44c3619df267439a6a3b129c2d452, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!50 &1138121414
+Rigidbody2D:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1138121412}
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!61 &1138121415
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1138121412}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: -0.014933109, y: -0.008205175}
+  serializedVersion: 2
+  m_Size: {x: 10.078162, y: 0.98358953}
+--- !u!4 &1138121416
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1138121412}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.037911385, y: -4.23, z: 0}
+  m_LocalScale: {x: 3.18, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 15
 --- !u!1 &1192404196
 GameObject:
   m_ObjectHideFlags: 0
@@ -3460,7 +3532,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1287138324}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 10860ddb529764d4db7492395b3d61f6, type: 3}
+  m_Script: {fileID: 11500000, guid: db004cd1424188f40ab375f2e12c5b50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   damage: -1
@@ -4353,7 +4425,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1755643197}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 10860ddb529764d4db7492395b3d61f6, type: 3}
+  m_Script: {fileID: 11500000, guid: db004cd1424188f40ab375f2e12c5b50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 6
@@ -4603,7 +4675,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1954294851}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 10860ddb529764d4db7492395b3d61f6, type: 3}
+  m_Script: {fileID: 11500000, guid: db004cd1424188f40ab375f2e12c5b50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   damage: -1
@@ -5057,7 +5129,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2052671879}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 10860ddb529764d4db7492395b3d61f6, type: 3}
+  m_Script: {fileID: 11500000, guid: db004cd1424188f40ab375f2e12c5b50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 8
@@ -5215,7 +5287,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2090682215}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 10860ddb529764d4db7492395b3d61f6, type: 3}
+  m_Script: {fileID: 11500000, guid: db004cd1424188f40ab375f2e12c5b50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   damage: -1

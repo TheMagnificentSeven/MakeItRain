@@ -27,7 +27,7 @@ public class HealthBar : MonoBehaviour {
         {
             Debug.Log("game over; count to 10");
             deadTimer++;
-            if (deadTimer >= 10)
+            if (deadTimer >= 20)
             {
                 UnityEngine.SceneManagement.SceneManager.LoadScene("GameOver");
                 grunts[0].Play();
