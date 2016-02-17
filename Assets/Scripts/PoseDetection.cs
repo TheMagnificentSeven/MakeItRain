@@ -8,6 +8,7 @@ public class PoseDetection : MonoBehaviour {
 	GenerateMove generateMove;
 	List<Pose> listOfGenPose;
 	private int correctCount; 
+	const float yArrow = 1.25f;
 
 	// Use this for initialization
 	void Start () {
@@ -25,14 +26,9 @@ public class PoseDetection : MonoBehaviour {
 			generateMove.Generate ();
 			listOfGenPose = generateMove.GetGeneratedPoseList ();
 			poseArrayCounter = 0;
+			setArrow (poseArrayCounter);
 		}
-		if (poseArrayCounter > listOfGenPose.Count - 1) {
-			//Debug.Log (listOfGenPose.Count);
-			//Debug.Log ("Resetting");
-			poseArrayCounter = -1;
-			return;
-		}
-			
+
 		Pose expectedPose = listOfGenPose[poseArrayCounter];
 
 		XRotate leftArm = GameObject.Find ("leftArm").GetComponent<XRotate> ();
@@ -51,45 +47,35 @@ public class PoseDetection : MonoBehaviour {
                 && rightLeg.getJointAngle() >= expectedPose.getRightLeg() - threshold))
         {
             // Yay you got the pose!
-            // Next Pose
-            poseArrayCounter++;   //new
-            setArrow(poseArrayCounter);
 
             // Celebratory sparkles
             GameObject.Find("DancingLightsSpawner").GetComponent<ParticleSpawner>().spawnParticles();
 
-            // We've finished three poses, make it rain!
-            if (poseArrayCounter % 3 == 0)
+            // We've finished all the poses, make it rain!
+			if (++poseArrayCounter == generateMove.GetTotalPoses())
             {
                 GameObject.Find("BigDancingLightsSpawner").GetComponent<ParticleSpawner>().spawnParticles();
                 GameObject.Find("BackgroundImage").GetComponent<MakeItRain>().Rain();
+				poseArrayCounter = -1;
+				return;
             }
+			setArrow(poseArrayCounter);
+        }
+        if (ScoreManager.score > 50)
+        {
+            lastDance();
         }
 	}
 
+    private void lastDance()
+    {
+        GameObject.Find("BackgroundImage").GetComponent<MakeItRain>().continuousRain();
+    }
+
 	private void setArrow(int poseArrayCounter)
 	{
-		SpriteRenderer leftarrow = GameObject.Find("leftarrow").GetComponent<SpriteRenderer>();
-		SpriteRenderer midarrow = GameObject.Find("midarrow").GetComponent<SpriteRenderer>();
-		SpriteRenderer rightarrow = GameObject.Find("rightarrow").GetComponent<SpriteRenderer>();
-
-		switch (poseArrayCounter%3)
-		{
-		case 0:
-			leftarrow.enabled = true;
-			midarrow.enabled = false;
-			rightarrow.enabled = false;
-			break;
-		case 1:
-			leftarrow.enabled = false;
-			midarrow.enabled = true;
-			rightarrow.enabled = false;
-			break;
-		case 2:
-			leftarrow.enabled = false;
-			midarrow.enabled = false;
-			rightarrow.enabled = true;
-			break;
-		}
+		SpriteRenderer poseArrow = GameObject.Find("PoseArrow").GetComponent<SpriteRenderer>();
+		GameObject currentPose = generateMove.GetPoseGameObjects () [poseArrayCounter];
+		poseArrow.transform.position = new Vector3(currentPose.transform.position.x,yArrow,0);
 	}
 }
