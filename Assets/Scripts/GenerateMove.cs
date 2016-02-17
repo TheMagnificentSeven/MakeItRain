@@ -10,10 +10,13 @@ using System.Collections.Generic;
 	List<Pose> generatedPoses;
 	List<GameObject> poseGameObjects;
 	private SpriteRenderer spriteRender;
+
 	const int SCORE_TO_LEVEL_UP = 50;
 	int totalPoses = 3; 
-	float x; 
-	float y = (float)(1.9);
+
+	float xOfFirstPose; 
+	const float y = (float)(1.9);
+
 	Pose currentPose;
     int lastIndex = -1;
 
@@ -52,15 +55,16 @@ using System.Collections.Generic;
 	}
 
 	private int CalculateTotalPoses(){
-		return 3 + ScoreManager.score / SCORE_TO_LEVEL_UP;
+		if (totalPoses >= 8)
+			return 8;
+		//return 3 + ScoreManager.score / SCORE_TO_LEVEL_UP;
+		return ++totalPoses; //TODO FOR TESTING PURPOSES
 	}
 
 	void InitX(){
-		x = -1 * (int)Mathf.Ceil(totalPoses % 2);
-	}
-
-	void SetX(){
-		x += 1;
+		xOfFirstPose = -1 * (int)Mathf.Ceil(totalPoses / 2);
+		if (xOfFirstPose % 2 == 0)
+			xOfFirstPose += 0.5f;
 	}
 
 	void Show(){
@@ -68,9 +72,8 @@ using System.Collections.Generic;
 		for(int i = 0; i < totalPoses ; i++) {
 			string img_num = generatedPoses[i].getId();
 			GameObject pose_s = GameObject.Find("p_" + img_num);
-			GameObject pos_s = (GameObject)Instantiate(pose_s, new Vector3(x, y, 0), Quaternion.identity);
+			GameObject pos_s = (GameObject)Instantiate(pose_s, new Vector3(xOfFirstPose + i, y, 0), Quaternion.identity);
 			poseGameObjects.Add (pos_s);
-			SetX ();
 		}
 	}
 
