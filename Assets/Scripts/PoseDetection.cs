@@ -61,7 +61,7 @@ public class PoseDetection : MonoBehaviour {
             }
 			setArrow(poseArrayCounter);
         }
-        if (ScoreManager.score > 500)
+        if (ScoreManager.score > 50)
         {
             lastDance();
         }
