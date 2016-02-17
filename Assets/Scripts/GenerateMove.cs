@@ -50,10 +50,6 @@ using System.Collections.Generic;
 		Show ();
     }
 
-	public List<Pose> GetGeneratedPoseList() {
-		return generatedPoses;
-	}
-
 	private int CalculateTotalPoses(){
 		if (totalPoses >= 8)
 			return 8;
@@ -78,5 +74,17 @@ using System.Collections.Generic;
 	}
 
     void Update() {}
+
+	public int GetTotalPoses(){
+		return totalPoses;
+	}
+
+	public List<Pose> GetGeneratedPoseList() {
+		return generatedPoses;
+	}
+
+	public List<GameObject> GetPoseGameObjects(){
+		return poseGameObjects;
+	}
 
  }
