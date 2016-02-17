@@ -62,6 +62,7 @@ public class MakeItRain : MonoBehaviour
         UpdateTime();
     }
     
+
     // Called only when dance is finished or time is out
     public void Rain()
     {
@@ -100,9 +101,9 @@ public class MakeItRain : MonoBehaviour
         // determine numObjects using object size!
         float width = rain.GetComponent<BoxCollider2D>().size.x;
         float damage = (float) rain.GetComponent<RainWatcher>().getDamage();
-        numObjects = (int)Mathf.Ceil(25.0f / damage);
+        numObjects = (int)Mathf.Ceil(20.0f / damage);
         if (width <= 0.5)
-            numObjects = numObjects * 2;
+            numObjects = numObjects * 3;
         if (danceQuality == 3)
             numObjects = 10;
         else if (danceQuality == 2)
@@ -126,5 +127,10 @@ public class MakeItRain : MonoBehaviour
         danceQuality = -1;
         InitializeTimer();
         Debug.Log(timer);
+    }
+
+    public void continuousRain()
+    {
+        InvokeRepeating("Rain", 1, 1);
     }
 }

@@ -53,8 +53,8 @@ using System.Collections.Generic;
 	private int CalculateTotalPoses(){
 		if (totalPoses >= 8)
 			return 8;
-		//return 3 + ScoreManager.score / SCORE_TO_LEVEL_UP;
-		return ++totalPoses; //TODO FOR TESTING PURPOSES
+		return 3 + ScoreManager.score / SCORE_TO_LEVEL_UP;
+		//return ++totalPoses; //TODO FOR TESTING PURPOSES
 	}
 
 	void InitX(){
