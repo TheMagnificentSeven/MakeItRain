@@ -98,7 +98,7 @@ public class MakeItRain : MonoBehaviour
 
         // determine numObjects using object size!
         float width = rain.GetComponent<BoxCollider2D>().size.x;
-        float damage = (float) rain.GetComponent<RainWatcher>().getDamage();
+        float damage = (float) rain.GetComponent<RainDamage>().getDamage();
         numObjects = (int)Mathf.Ceil(20.0f / damage);
         if (width <= 0.5)
             numObjects = numObjects * 3;
@@ -120,10 +120,10 @@ public class MakeItRain : MonoBehaviour
     private void spawnRainObject(GameObject rain, float width)
     {
         float x_rand = Random.Range(minX, maxX - width);
-        float y_rand = Random.Range(1f, 3f);
+        float y_rand = Random.Range(12.0f, 14.0f);
         GameObject rainClone = (GameObject)Instantiate(rain, new Vector3(x_rand, rain.transform.position.y - y_rand, rain.transform.position.z), rain.transform.rotation);
         rainClone.GetComponent<Rigidbody2D>().gravityScale = 1;
-        rainClone.GetComponent<RainWatcher>();
+        rainClone.GetComponent<RainDamage>();
         rainClone.tag = "Untagged";
         Collider2D rainCol = rainClone.GetComponent<BoxCollider2D>();
         Collider2D leftWall = GameObject.Find("LeftWall").GetComponent<BoxCollider2D>();

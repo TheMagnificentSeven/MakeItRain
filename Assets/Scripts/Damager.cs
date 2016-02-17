@@ -27,7 +27,7 @@ public class Damager : MonoBehaviour
         if (rain.name.Contains("Clone"))
         {
             bool torso = gameObject.name.Contains("torso");
-            int damage = rain.GetComponent<RainWatcher>().getDamage();
+            int damage = rain.GetComponent<RainDamage>().getDamage();
             Debug.Log(damage);
             if (damage < 0)
             {

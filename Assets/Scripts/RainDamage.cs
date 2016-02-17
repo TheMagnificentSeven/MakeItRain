@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class RainWatcher : MonoBehaviour {
+public class RainDamage : MonoBehaviour {
 
     [SerializeField] private int damage;
 
@@ -12,8 +12,6 @@ public class RainWatcher : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        if (transform.position.y <= -10)
-            Destroy(gameObject);
     }
 
     public int getDamage()
