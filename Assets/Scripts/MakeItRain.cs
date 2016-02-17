@@ -62,6 +62,7 @@ public class MakeItRain : MonoBehaviour
         UpdateTime();
     }
     
+
     // Called only when dance is finished or time is out
     public void Rain()
     {
@@ -126,5 +127,10 @@ public class MakeItRain : MonoBehaviour
         danceQuality = -1;
         InitializeTimer();
         Debug.Log(timer);
+    }
+
+    public void continuousRain()
+    {
+        InvokeRepeating("Rain", 1, 1);
     }
 }

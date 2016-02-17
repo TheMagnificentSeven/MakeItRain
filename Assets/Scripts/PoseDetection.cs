@@ -65,7 +65,16 @@ public class PoseDetection : MonoBehaviour {
                 GameObject.Find("BackgroundImage").GetComponent<MakeItRain>().Rain();
             }
         }
+        if (ScoreManager.score > 500)
+        {
+            lastDance();
+        }
 	}
+
+    private void lastDance()
+    {
+        GameObject.Find("BackgroundImage").GetComponent<MakeItRain>().continuousRain();
+    }
 
 	private void setArrow(int poseArrayCounter)
 	{
